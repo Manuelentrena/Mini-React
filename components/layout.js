@@ -1,13 +1,13 @@
-import { Component } from '../lib/react.js';
+import { Component, createElement } from '../lib/react/index.js';
 
 class Layout extends Component {
   render () {
-    const { childrem } = this.props;
-    return `
-      <div class="wrapper">
-        ${childrem}
-      </div>
-    `;
+    const { children } = this.props;
+    return createElement('div', 
+    {
+      class:"wrapper",
+      children,
+    })
   }
 }
 

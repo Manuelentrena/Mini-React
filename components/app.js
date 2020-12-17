@@ -1,26 +1,22 @@
-import { Component } from '../lib/react.js';
-import User from './user.js';
+import { Component, createElement } from '../lib/react/index.js';
 import Layout from './layout.js';
 import UserStyled from './user-styled.js';
 
 class App extends Component{
   render(){
-    return `
-      <div class="app">
-      ${new Layout({
-        childrem: `
-          ${new User({
-            avatar: './img/ash.jpg',
-            name: 'Ash',
-          }).render()}
-          ${new UserStyled({
-            avatar: './img/ash.jpg',
-            name: 'Ash',
-          }).render()}
-        `
-      }).render()}
-      </div>
-    `;
+    return createElement('div', 
+    {
+      class: 'app',
+      children: new Layout({
+        children: [
+          new UserStyled({
+            name: 'Manuel Entrena',
+            avatar: './img/avatar.png',
+            age: 10,
+          }),
+        ],
+      }),
+    });
   }
 }
 
